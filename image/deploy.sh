@@ -5,4 +5,4 @@ git tag -a gateway_${VERSION} -m "Building a new version for Kong Loadbalancer G
 git push
 git push origin gateway_${VERSION}
 
-docker push andrebaceti/boostrap-kong:${VERSION}
+docker push andrebaceti/autoboostrap-kong:${VERSION}

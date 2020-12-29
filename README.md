@@ -5,3 +5,7 @@ running.
 
 https://konghq.com/kong/
 https://hub.docker.com/_/kong
+
+# Docker image
+`andrebaceti/autoboostrap-kong`
+https://hub.docker.com/repository/docker/andrebaceti/autoboostrap-kong

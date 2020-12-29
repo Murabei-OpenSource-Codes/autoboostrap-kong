@@ -1,2 +1,2 @@
 source version
-docker build -t andrebaceti/boostrap-kong:${VERSION} .
+docker build -t andrebaceti/autoboostrap-kong:${VERSION} .
