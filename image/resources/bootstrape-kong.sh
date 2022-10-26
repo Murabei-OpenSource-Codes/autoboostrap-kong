@@ -2,6 +2,6 @@
 echo "#######################"
 echo "## Bootstraping Kong ##"
 echo "#######################"
-
 kong migrations bootstrap
 kong migrations up
+kong migrations finish
