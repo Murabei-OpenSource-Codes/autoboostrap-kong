@@ -1,10 +1,11 @@
-FROM kong:2.7.0
+FROM kong:3.9.0-ubuntu
 LABEL maintainer="Murabei Data Science"
 
 ##############################################
 # Default variable to facilitate local tests #
 ENV KONG_DATABASE="postgres"
 ENV KONG_PG_HOST="postgres-kong-database"
+ENV KONG_PG_PORT="5432"
 ENV KONG_PROXY_ACCESS_LOG="/dev/stdout"
 ENV KONG_ADMIN_ACCESS_LOG="/dev/stdout"
 ENV KONG_PROXY_ERROR_LOG="/dev/stderr"
@@ -15,8 +16,9 @@ ENV KONG_PG_USER="kong"
 
 # Installing tools for postgres readness detection
 USER root
-RUN apk add --no-cache postgresql-client
-RUN apk add --no-cache curl
+RUN apt update
+RUN apt upgrade -y
+RUN apt install -y postgresql-client curl
 
 COPY resources/docker-entrypoint.sh /docker-entrypoint.sh
 COPY resources/wait-for-postgres.sh /wait-for-postgres.sh
