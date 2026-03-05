@@ -13,7 +13,12 @@ ENV KONG_ADMIN_ERROR_LOG="/dev/stderr"
 ENV KONG_ADMIN_LISTEN="0.0.0.0:8001, 0.0.0.0:8444 ssl"
 ENV KONG_PG_PASSWORD="kong"
 ENV KONG_PG_USER="kong"
+
+# Remove the body size max for kong that is an internal tool
+# and set the keep alive for 4s, clients must be set for 5s to
+# reduce the errors for upstream errors
 ENV KONG_NGINX_PROXY_CLIENT_MAX_BODY_SIZE=0
+ENV KONG_UPSTREAM_KEEPALIVE_IDLE_TIMEOUT="4000"
 
 # Installing tools for postgres readness detection
 USER root
